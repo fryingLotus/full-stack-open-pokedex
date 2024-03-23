@@ -10,12 +10,11 @@ jobs:
   hello_world_job:
     runs-on: ubuntu-20.04
     steps:
-    - name: Say hello
-      run: |
-  echo "Hello World!":
-    - name: Print Current Date 
-      run: |
-       echo "Current Date: $(date)"
-    - name: List Current Directory Content
-      run: |
-        echo ls -l
+      - name: Say hello
+        run: echo "Hello World!"
+      - name: Print Current Date 
+        run: |
+          echo "Current Date: $(date)"
+      - name: List Current Directory Content
+        run: |
+          ls -l
