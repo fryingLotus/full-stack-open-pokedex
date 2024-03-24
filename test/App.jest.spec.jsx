@@ -29,7 +29,7 @@ describe('<App />', () => {
     await act(async () => {
       render(<Router><App/></Router>)
     })
-    expect(screen.getByTestId('error')).toBeVisible()
+    await expect(screen.getByTestId('error')).toBeVisible()
   })
 
 })

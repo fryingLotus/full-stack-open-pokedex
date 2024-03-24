@@ -1,12 +1,15 @@
-// eslint-disable-next-line no-undef
 module.exports = {
   env: {
-    browser: true,
+    browser: true, // Add browser environment
+    node: true,
     es6: true,
     'jest/globals': true,
-    node: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:playwright/jest-playwright'],
+  globals: {
+    globalThis: false,
+    document: false, // Define document as a global variable
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -15,10 +18,16 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'jest'],
+  settings: {
+    react: {
+      version: 'detect', // Specify React version
+    },
+  },
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
+    semi: ['error', 'never'],
     eqeqeq: 'error',
     'no-trailing-spaces': 'error',
     'object-curly-spacing': ['error', 'always'],
@@ -26,4 +35,5 @@ module.exports = {
     'no-console': 'error',
     'react/prop-types': 0,
   },
-};
+}
+

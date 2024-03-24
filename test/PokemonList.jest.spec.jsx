@@ -16,13 +16,14 @@ const pokemonList = [{
 }]
 
 describe('<PokemonList />', () => {
-  it('should render items', () => {
+  it('should render items', async () => { // Mark the test function as async
     render(
       <BrowserRouter>
         <PokemonList pokemonList={pokemonList} />
       </BrowserRouter>
     )
-    expect(screen.getByText('bulbasaur')).toBeVisible()
-    expect(screen.getByText('eevee')).toBeVisible()
+    await expect(screen.getByText('bulbasaur')).toBeVisible()
+    await expect(screen.getByText('eevee')).toBeVisible()
   })
 })
+
